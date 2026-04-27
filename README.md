@@ -134,3 +134,25 @@ sudo ls -la /run/tor/
 <img width="1089" height="778" alt="image" src="https://github.com/user-attachments/assets/f89459b3-2527-4273-b66c-8021c02398de" />
 
 วิธีการ check Tor address : docker exec lnd lncli getinfo | grep -E "uris|onion"
+
+อย่าลืมเปิด Firewall
+
+# Allow LND to talk to Tor Control
+
+sudo ufw allow from 172.19.0.0/16 to any port 9051 proto tcp
+
+# Allow LND to talk to Tor Socks
+
+sudo ufw allow from 172.19.0.0/16 to any port 9050 proto tcp
+
+# Reload to apply
+
+sudo ufw reload
+
+แล้วทำการเช็ค connection
+
+docker exec -it lnd nc -zv 172.19.0.1 9051
+
+มันจะต้องขึ้นว่า 172.19.0.1 (172.19.0.1:9051) open
+
+
