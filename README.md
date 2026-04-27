@@ -100,3 +100,37 @@ docker exec -it lnd lncli walletbalance
 docker exec -it lnd lncli openchannel \
 --node_key=PUBKEY \
 --local_amt=1000000
+
+This is how to install tor network for dual mode LND
+
+sudo apt update
+sudo apt install -y tor
+sudo systemctl enable tor
+sudo systemctl start tor
+sudo systemctl status tor
+
+sudo nano /etc/tor/torrc
+
+put this at the bottom
+
+SOCKSPort 0.0.0.0:9050
+ControlPort 0.0.0.0:9051
+CookieAuthentication 1
+CookieAuthFileGroupReadable 1
+
+then
+
+sudo systemctl restart tor
+
+if its not work may be you have to run tor default
+
+sudo systemctl restart tor@default
+sudo systemctl status tor@default
+
+sudo ls -la /var/lib/tor/
+
+sudo ls -la /run/tor/
+
+<img width="1089" height="778" alt="image" src="https://github.com/user-attachments/assets/f89459b3-2527-4273-b66c-8021c02398de" />
+
+วิธีการ check Tor address : docker exec lnd lncli getinfo | grep -E "uris|onion"
