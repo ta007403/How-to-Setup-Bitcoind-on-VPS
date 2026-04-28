@@ -5,6 +5,8 @@ lsblk
 
 <img width="569" height="152" alt="image" src="https://github.com/user-attachments/assets/b4dcb711-eca7-4682-8044-8e7766dc0e01" />
 
+แล้วนี่คือการดูว่าเราใช้ Disk ไปเท่าไร df -h
+
 Hetzner สร้างชื่อ Volumn น่าเกลียดไปนิด เราต้องเปลี่ยน
 
 sudo ln -s /mnt/HC_Volume_105481441 /mnt/bitcoin
