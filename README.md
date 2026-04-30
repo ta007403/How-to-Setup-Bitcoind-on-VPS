@@ -157,4 +157,7 @@ docker exec -it lnd nc -zv 172.19.0.1 9051
 
 มันจะต้องขึ้นว่า 172.19.0.1 (172.19.0.1:9051) open
 
+อันนี้เป็นวิธีการติดตามว่าขนาดของ Block เป็นเท่าใด du -sh blocks
+
+<img width="1319" height="361" alt="image" src="https://github.com/user-attachments/assets/9da50b63-5ea0-468d-91a8-ba9fb1c4d0a3" />
 
